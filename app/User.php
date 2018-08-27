@@ -26,4 +26,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 获取该用户的设置
+     */
+    public function userSetting()
+    {
+        return $this->hasMany('App\UserSettingModel','user_id','id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\PostsModel','user_id','id');
+    }
+
+    public function msg()
+    {
+        return $this->hasMany('App\MsgModel','user_id','id');
+    }
 }
