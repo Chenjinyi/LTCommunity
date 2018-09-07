@@ -23,8 +23,14 @@ class IndexController extends Controller
             ->where('status', '!=', 0)
             ->paginate(25);
         $pageName = "首页";
-        $user = User::where('status', '!=', 0)->get()->random(5);
-        return view("index", compact('pageName', 'posts', 'topPosts', 'user'));
+
+        if (User::all()->count() >= 5) { //防止获取不到用户报错
+            $user = User::where('status', '!=', 0)->get()->random(5);
+        } else {
+            $user = null;
+        }
+
+        return view("Index", compact('pageName', 'posts', 'topPosts', 'user'));
     }
 
     /**

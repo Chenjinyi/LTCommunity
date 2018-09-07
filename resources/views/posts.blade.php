@@ -54,7 +54,7 @@
                     <ul class="list-group card-list-group">
                         @if(!$comment->isEmpty())
                             @foreach($comment as $str)
-                                <li class="list-group-item py-5">
+                                <li class="list-group-item py-5" id="comment{{$str->id}}">
                                     <div class="media">
                                         <div class="media-object avatar avatar-md mr-4"
                                              style="background-image: url({{!empty($str->user->author) ? $str->user->author : Gravatar::get($str->user->email)}})"></div>

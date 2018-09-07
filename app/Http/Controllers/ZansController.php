@@ -18,14 +18,6 @@ class ZansController extends Controller
      */
     public function postsZansAction(Request $request)
     {
-//        $this->validate($request,[
-//            'posts_id'=>'request|'
-//        ]);
 
-        $zans = new ZansModel();
-        $zans->user_id  = Auth::id();
-        $zans->posts_id = $posts_id;
-        $zans->save();
-        return redirect(back());
     }
 }
