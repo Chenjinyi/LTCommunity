@@ -28,7 +28,7 @@
                                                        href="{{ action('PostsController@delPostsAction') }}"
                                                        onclick="event.preventDefault();
                                                      document.getElementById('del-posts').submit();
-                                                       confirm('确认要删除该文章嘛？')">
+                                                       ">
                                             <i class="fe fe-trash"></i></a></td>
                                     <form id="del-posts" action="{{ action("PostsController@delPostsAction") }}"
                                           method="POST"
