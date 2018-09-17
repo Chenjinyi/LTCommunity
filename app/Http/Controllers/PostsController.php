@@ -57,6 +57,7 @@ class PostsController extends Controller
         $this->validate($request,[
             'posts_id'=>'required|exists:posts,id'
         ]);//验证
+
         if (!Auth::id() == $request['posts_id']) {//权限认证
             return $errorNumBack->backPage('404');//错误返回
         }
