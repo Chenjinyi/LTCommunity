@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PostsDataModel;
 use App\PostsModel;
 use App\User;
 use App\CommentModel;
@@ -66,6 +67,16 @@ class IndexController extends Controller
                     ->get()
                     ->take(6))
                 ?: $userPosts = null;//获得用户写的文章
+
+            $posts_data = PostsDataModel::where('posts_id',$posts_id)->get();//获得文章额外数据
+            if ($posts_data->isEmpty()){ //解决之前文章未生成
+                $posts_data = PostsDataModel::create([
+                    'list'=>'0',
+                    'posts_id'=>$posts_id,
+                    'plate_id'=>null,
+                ]);
+            }
+            PostsDataModel::where('posts_id',$posts_id)->sharedLock()->increment('list');
 
             $titleString = $posts->title;
             $postsString = Markdown::convertToHtml($posts->content);

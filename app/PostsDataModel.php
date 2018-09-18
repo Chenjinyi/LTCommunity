@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class PostsDataModel extends Model
 {
     protected $table = 'posts_data';
+
+    public $timestamps = false;
+
     protected $fillable=[
       'list','posts_id','plate_id'
     ];

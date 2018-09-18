@@ -7,6 +7,7 @@
                 {{$pageName}}
             </h1>
         </div>
+
         <div class="row">
             <div class="col-lg-8">
                 <div class="card">
@@ -88,12 +89,13 @@
                     <div class="mt-5 ml-5">{{$comment->links()}}</div>
                 </div>
             </div>
+
             <div class="col-lg-4">
                 @include('layouts.userheader')
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">数据</h4>
-                        <p class="card-subtitle">阅读量：</p>
+                        <p class="card-subtitle">阅读量：{{$posts->postsData->list}}</p>
                         <p class="card-subtitle">发布于：{{$posts->created_at->format('M d , Y')}}</p>
                         <p class="card-subtitle">最后更新：{{$posts->updated_at->format('M d , Y')}}</p>
                     </div>
