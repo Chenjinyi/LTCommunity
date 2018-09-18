@@ -20,10 +20,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    {{--<link href="{{asset("/css/sweetalert2.min.css")}}" rel="stylesheet"/>--}}
+    <script src="{{asset("/js/sweetalert2.all.min.js")}}"></script>
+
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    {{--tingle--}}
+    {{--<link href="{{asset("tingle/tingle.min.css")}}" rel="stylesheet"/>--}}
+    {{--<script src="{{asset("tingle/tingle.min.js")}}"></script>--}}
     <script src="{{asset("assets/js/require.min.js")}}"></script>
     <script>
         requirejs.config({
-            baseUrl: '.'
+            baseUrl: ''
         });
     </script>
 
@@ -178,9 +186,9 @@
                                         {{--<a href="" class="dropdown-item ">收款设置</a>--}}
                                     </div>
                                 </li>
-                                {{--<li class="nav-item">--}}
-                                {{--<a href="./gallery.html" onclick="alert('开发中') class="nav-link"><i class="fe fe-bell"></i>消息</a>--}}
-                                {{--</li>--}}
+                                <li class="nav-item">
+                                <a href="./gallery.html" onclick="alert('开发中')" class="nav-link"><i class="fe fe-bell"></i>消息</a>
+                                </li>
                             @endauth
                             {{--<li class="nav-item dropdown">--}}
                             {{--<a href="" class="nav-link"><i class="fe fe-check-square"></i> 时间线</a>--}}

@@ -24,12 +24,27 @@
                                     <td class="text-right">
                                         <span class="text-muted">{{$posts->created_at->format('M d , Y')}}</span>
                                     </td>
-                                    <td class="w-1"><a class="icon"
-                                                       href="{{ action('PostsController@delPostsAction') }}"
-                                                       onclick="event.preventDefault();
-                                                     document.getElementById('del-posts').submit();
+                                    <td class="w-1"><p class="icon"
+                                                       onclick="delaction()
                                                        ">
-                                            <i class="fe fe-trash"></i></a></td>
+                                            <i class="fe fe-trash"></i></p></td>
+                                    @if(session('delstatus'))
+                                        <script>
+                                            swal({
+                                                title: '成功',
+                                                text: '成功删除了这篇文章',
+                                                type: 'success',
+                                                heightAuth: false,
+                                                timer: 2000,
+                                            })
+                                        </script>
+                                    @endif
+                                    <script>
+                                        function delaction() {
+                                            event.preventDefault();
+                                            document.getElementById('del-posts').submit()
+                                        }
+                                    </script>
                                     <form id="del-posts" action="{{ action("PostsController@delPostsAction") }}"
                                           method="POST"
                                           style="display: none;">
