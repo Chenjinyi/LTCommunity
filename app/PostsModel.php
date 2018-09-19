@@ -25,7 +25,7 @@ class PostsModel extends Model
      */
     public function postsData()
     {
-        return $this->hasOne('App\PostsDataModel')->withDefault();
+        return $this->hasOne('App\PostsDataModel','posts_id','id')->withDefault();
     }
 
     /**

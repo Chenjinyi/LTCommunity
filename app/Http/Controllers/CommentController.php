@@ -27,6 +27,8 @@ class CommentController extends Controller
         $comment->user_id = $user_id;
         $comment->save();
 
-        return redirect()->back();
+//        return redirect()->back();
+        $path=$request['posts_id']."#comment".$comment->id;
+        return redirect(url('posts/'.$path));
     }
 }

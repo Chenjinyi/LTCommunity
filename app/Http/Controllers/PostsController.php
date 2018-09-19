@@ -45,6 +45,12 @@ class PostsController extends Controller
             'content' => $request['content'],
             'user_id' => $user_id
         ]);
+        $plate_id = 0;
+        $posts_data = PostsDataModel::create([
+          'list'=>'0',
+          'posts_id'=>$posts_id->id,
+          'plate_id'=>$plate_id,
+        ]);
         return redirect()->route('postsPage', ['posts_id' => $posts_id->id]);
     }
 
@@ -65,7 +71,7 @@ class PostsController extends Controller
         $posts = PostsModel::find($request['posts_id']);
         $posts->status= 0;
         $posts->save();
-        return redirect()->back();
+        return redirect()->back()->with('delstatus', 'yes');
 
     }
 
