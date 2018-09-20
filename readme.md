@@ -2,9 +2,11 @@
 
 
 
-![image1c09d4ee0d4ea0cc.png](https://sz.ali.ftc.red/ftc/2018/08/27/image1c09d4ee0d4ea0cc.png)
+![AdobeStock](./AdobeStock.jpg)
 
-[^]: 截图来源于 0.1.0 
+> Design by [Adobe](https://www.adobe.com/)
+>
+> 图内网站版本 ： Version 0.1.0 
 
 
 
@@ -18,19 +20,19 @@
 
 > 目前只是预览版，很多功能并没有得到完善，会存在bug
 
-​	使用Laravel+Tabler框架开发搭建的社区网站
+	使用Laravel+Tabler框架开发搭建的社区网站
 
 ### 名字来源
 
-​	使用Laravel+Tabler框架开发搭建的社区网站
+	使用Laravel+Tabler框架开发搭建的社区网站
 
 ### 许可证
 
-​	请遵守 GPL3.0 
+	请遵守 GPL3.0 
 
 ### 国际化
 
-​	暂不考虑
+	暂不考虑
 
 ### 安装方法
 
@@ -99,7 +101,7 @@ location / {
 
 ### 问题反馈
 
-​	请提交Issue或发送邮件到 chenjinyi666@gmail.com
+	请提交Issue或发送邮件到 chenjinyi666@gmail.com
 
 ### 感谢\致敬
 
@@ -114,3 +116,5 @@ location / {
 [Yfsama]()
 
 [sweetalert2](https://sweetalert2.github.io/)
+
+[Adobe](https://www.adobe.com/)
