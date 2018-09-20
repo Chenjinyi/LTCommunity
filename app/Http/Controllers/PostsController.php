@@ -97,8 +97,6 @@ class PostsController extends Controller
         }
 
         return $errorNumBack->backPage('404');//错误返回
-
-
     }
 
     /**
@@ -138,7 +136,7 @@ class PostsController extends Controller
             PostsModel::orderBy('created_at', 'desc')
                 ->where('user_id', '=', $user->id)
                 ->where('status', '!=', 0)
-                ->paginate(6);//获得文章
+                ->get();
         !$userPosts->isEmpty() ?: $userPosts = null;
         return view('home.showposts', compact('pageName', 'userPosts'));
     }

@@ -34,15 +34,27 @@
                                                 title: '成功',
                                                 text: '成功删除了这篇文章',
                                                 type: 'success',
-                                                heightAuth: false,
+                                                heightAuto: false,
                                                 timer: 2000,
                                             })
                                         </script>
                                     @endif
                                     <script>
                                         function delaction() {
-                                            event.preventDefault();
-                                            document.getElementById('del-posts').submit()
+                                            swal({
+                                                title: '删除文章',
+                                                text: '你确认要删除该文章嘛？',
+                                                type: 'warning',
+                                                showCancelButton: true,
+                                                heightAuto: false,
+                                                confirmButtonText: '确认',
+                                                cancelButtonText: '取消',
+                                                showLoaderOnConfirm: true,
+                                                preConfirm: () => {
+                                                    // event.preventDefault();
+                                                    document.getElementById('del-posts').submit()
+                                                }
+                                            })
                                         }
                                     </script>
                                     <form id="del-posts" action="{{ action("PostsController@delPostsAction") }}"
