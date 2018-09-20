@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PlateModel;
 use App\PostsDataModel;
 use App\PostsModel;
 use App\User;
@@ -47,6 +48,9 @@ class IndexController extends Controller
      */
     public function postsPage($posts_id)
     {
+        $this->validate(\request(),[
+           'posts_id'=>'numeric|exists:posts,id'
+        ]);
         $errorNumBack = new ErrorNumBackController();
         $pageName = "文章";
 
@@ -84,6 +88,59 @@ class IndexController extends Controller
         }
 
         return $errorNumBack->backPage('404');//错误返回
+    }
+
+    /**
+     * 获取板块
+     */
+    protected function getPlate()
+    {
+        $plate = PlateModel::orderBy('created_at', 'desc')
+            ->where('status', '!=', 0)
+            ->get();
+        if ($plate->isEmpty()) {
+            $plate = null;
+        }
+        return $plate;
+    }
+
+    /**
+     * 板块列表页面返回
+     */
+    public function plateShowPage()
+    {
+        $plate= $this->getPlate();
+        $pageName="板块";
+        return view('plateshow',compact('pageName','plate'));
+    }
+
+    /**
+     * 板块文章返回
+     */
+    public function platePostsPage($id)
+    {
+        $this->validate(\request(),[
+           'id' =>'numeric|exists:plate,id'
+        ]);
+
+        $errorNumBack = new ErrorNumBackController();
+
+        $plate = PlateModel::where('id',$id)->get();
+
+        if ($plate->isEmpty()){
+            return $errorNumBack->backPage('404');//错误返回
+        }
+
+        $posts_data = PostsDataModel::where('plate_id',$id)
+            ->get();
+        if ($posts_data->isEmpty()){
+            $posts_data = null;
+        }
+
+        $pageName = PlateModel::find($id)->title;
+
+        return view('plateposts',compact('pageName','posts_data'));
+
     }
 
 

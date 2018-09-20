@@ -22,6 +22,9 @@ Route::get('/posts/{posts_id}','IndexController@postsPage')->name('postsPage');/
 Route::get('/tags/{tagName}','TagsController@tagsPage')->name('tagsPage');//标签页面
 Route::get('/explore/tags','TagController@tagsExplorePage');//探索标签
 
+Route::get('/plate','IndexController@plateShowPage')->name('plateShowPage');//板块列表
+Route::get('/plate/{id}','IndexController@platePostsPage')->name('platePostsPage');//板块文章
+
 Route::group(['prefix' => '/home/posts/', 'middleware' => 'throttle:60,5'], function () {
     Route::get('add', 'PostsController@addPostsPage');//添加文章
     Route::post('add', 'PostsController@addPostsAction');//添加操作
