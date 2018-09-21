@@ -10,8 +10,12 @@ class UserController extends Controller
     /**
      * 用户页面返回
      */
-    public function userPage($user_id)
+    public function userPage(Request $request)
     {
+        $this->validate($request, [
+            'user_id' => 'numeric|exists:user,id'
+        ]);
+        $user_id = $request['user_id'];
         $pageName = "用户";
         $errorNumBack = new ErrorNumBackController();
 

@@ -99,7 +99,7 @@
                     </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{action('HomeController@userSettingPage')}}">
                                     <i class="dropdown-icon fe fe-user"></i> 用户设置
                                 </a>
                                 {{--<a class="dropdown-item" href="#">--}}
@@ -160,13 +160,13 @@
                                 <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i
                                             class="fe fe-box"></i>探索</a>
                                 <div class="dropdown-menu dropdown-menu-arrow">
-                                    <a href="" onclick="alert('开发中')" class="dropdown-item ">标签</a>
+                                    <p href="" onclick="devOnclick" class="dropdown-item ">标签</p>
                                     {{--<a href="./" class="dropdown-item "></a>--}}
                                     {{--<a href="./" class="dropdown-item ">合作商</a>--}}
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="" onclick="alert('开发中')" class="nav-link"><i class="fe fe-layers"></i>板块</a>
+                                <a href="{{route('plateShowPage')}}" class="nav-link"><i class="fe fe-layers"></i>板块</a>
                             </li>
                             @auth
                                 <li class="nav-item dropdown">
@@ -187,9 +187,20 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                <a href="./gallery.html" onclick="alert('开发中')" class="nav-link"><i class="fe fe-bell"></i>消息</a>
+                                <p href="" onclick="devOnclick('开发中','该功能还在开发中哟','error')" class="nav-link"><i class="fe fe-bell"></i>消息</p>
                                 </li>
                             @endauth
+                            <script>
+                                function devOnclick() {
+                                    swal({
+                                        title: '开发中',
+                                        text: '该功能还在开发中哟',
+                                        type: 'error',
+                                        heightAuto: false,
+                                        timer: 2000,
+                                    })
+                                }
+                            </script>
                             {{--<li class="nav-item dropdown">--}}
                             {{--<a href="" class="nav-link"><i class="fe fe-check-square"></i> 时间线</a>--}}
                             {{--</li>--}}
