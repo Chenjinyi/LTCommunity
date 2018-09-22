@@ -72,8 +72,6 @@
                             <div class="dropdown d-none d-md-flex">
                                 @if(!empty(Auth::user()->msg))
                                     <a class="nav-link icon" data-toggle="dropdown">
-                                        <i class="fe fe-bell"></i>
-                                        <span class="nav-unread"></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                         @foreach(Auth::user()->msg as $msg)
@@ -161,6 +159,8 @@
                                             class="fe fe-box"></i>探索</a>
                                 <div class="dropdown-menu dropdown-menu-arrow">
                                     <p href="" onclick="devOnclick()" class="dropdown-item ">标签</p>
+                                    <p href="" onclick="devOnclick()" class="dropdown-item ">美图</p>
+                                    <p href="" onclick="devOnclick()" class="dropdown-item ">随机文章</p>
                                     {{--<a href="./" class="dropdown-item "></a>--}}
                                     {{--<a href="./" class="dropdown-item ">合作商</a>--}}
                                 </div>

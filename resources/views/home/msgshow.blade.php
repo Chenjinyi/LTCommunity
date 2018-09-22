@@ -35,10 +35,10 @@
                                 @endif
                                 <tr onclick="msg('{{$item->title}}','{{$item->subtitle}}','{{$item->content}}')">
                                     <td>
-                                        <a href="">{{$item->title}}</a>
+                                        {{$item->title}}
                                     </td>
                                     <td>
-                                        <a href="">{{$item->subtitle}}</a>
+                                        {{$item->subtitle}}
                                     </td>
                                     <td class="text-nowrap">{{$item->created_at->format('M d , Y')}}</td>
                                 </tr>

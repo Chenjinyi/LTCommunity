@@ -6,9 +6,22 @@
         <p class="mb-4">
             {{$user->email}}
         </p>
-        <button type="button" class="btn btn-danger"><i class="fe fe-heart mr-2"></i>赞赏</button>
+        <button type="button" class="btn btn-danger" onclick="inDev()"><i class="fe fe-heart mr-2"></i>赞赏</button>
     </div>
 </div>
+
+<script>
+    function inDev(){
+        swal({
+            type:'error',
+            title:'开发中',
+            text: '赞赏功能还未完成',
+            heightAuto: false,
+            timer: 2000
+        })
+    }
+
+</script>
 
 <style>
     a{
