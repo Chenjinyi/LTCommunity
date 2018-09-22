@@ -22,7 +22,7 @@
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
     {{--<link href="{{asset("/css/sweetalert2.min.css")}}" rel="stylesheet"/>--}}
     <script src="{{asset("/js/sweetalert2.all.min.js")}}"></script>
-
+    <link rel="stylesheet" href="{{asset('/css/animate.css')}}">
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     {{--tingle--}}
@@ -105,10 +105,10 @@
                                 {{--<a class="dropdown-item" href="#">--}}
                                 {{--<i class="dropdown-icon fe fe-settings"></i> Settings--}}
                                 {{--</a>--}}
-                                <a class="dropdown-item" href="#">
-                                    <span class="float-right"><span
-                                                class="badge badge-primary">{{empty(Auth::user()->msg->sum)}}</span></span>
-                                    <i class="dropdown-icon fe fe-mail"></i> 通知
+                                <a class="dropdown-item" href="{{action('MsgController@userMsgPage')}}">
+                                    {{--<span class="float-right"><span--}}
+                                                {{--class="badge badge-primary">{{empty(Auth::user()->msg->sum) ? 2 : 3}}</span></span>--}}
+                                    <i class="dropdown-icon fe fe-mail"></i> 消息
                                 </a>
                                 {{--GSSS预定--}}
                                 {{--<a class="dropdown-item" href="#">--}}
@@ -160,7 +160,7 @@
                                 <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i
                                             class="fe fe-box"></i>探索</a>
                                 <div class="dropdown-menu dropdown-menu-arrow">
-                                    <p href="" onclick="devOnclick" class="dropdown-item ">标签</p>
+                                    <p href="" onclick="devOnclick()" class="dropdown-item ">标签</p>
                                     {{--<a href="./" class="dropdown-item "></a>--}}
                                     {{--<a href="./" class="dropdown-item ">合作商</a>--}}
                                 </div>
@@ -187,7 +187,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                <p href="" onclick="devOnclick('开发中','该功能还在开发中哟','error')" class="nav-link"><i class="fe fe-bell"></i>消息</p>
+                                <a href="{{action('MsgController@userMsgPage')}}" class="nav-link"><i class="fe fe-bell"></i>消息</a>
                                 </li>
                             @endauth
                             <script>

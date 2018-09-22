@@ -37,8 +37,10 @@ Route::group(['prefix' => '/home/posts/', 'middleware' => 'throttle:60,5'], func
     Route::get('comment/add','IndexController@indexPage');//临时debug
 });
 Route::group(['prefix' => '/home/', 'middleware' => 'throttle:30,5'], function () {
-    Route::get('user/setting','HomeController@userSettingPage');
-    Route::post('user/setting','HomeController@userSettingAction');
+    Route::get('user/setting','HomeController@userSettingPage');//用户设置页面
+    Route::post('user/setting','HomeController@userSettingAction');//用户设置操作
+
+    Route::get('my/msg','MsgController@userMsgPage')->middleware('auth');//用户信息展示
 });
 
 Route::post('/posts/zans/{posts_id}', 'ZansController@postsZansAction');//文章点赞
